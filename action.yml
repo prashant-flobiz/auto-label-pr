@@ -1,0 +1,12 @@
+name: "PR Auto Fill"
+description: "GitHub Action to auto fill PR fields"
+inputs:
+  repo-access-token:
+    description: "Access token for the repository"
+    default: "${{ github.token }}"
+runs:
+  using: "node12"
+  main: "dist/index.js"
+branding:
+  icon: "command"
+  color: "gray-dark"
