@@ -18,11 +18,11 @@ async function run() {
   const head = github.context.payload.pull_request.head.sha;
 
   const client = github.getOctokit(core.getInput('token', {required: true}));
-  const response = await client.repos.compareCommits({
+  const response = await client.rest.repos.compareCommits({
     base,
     head,
     owner: github.context.repo.owner,
-    github.context.repo.repo
+    repo: github.context.repo.repo
   });
 
   const files = response.data.files;
