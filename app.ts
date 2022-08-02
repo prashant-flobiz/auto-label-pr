@@ -17,7 +17,7 @@ async function run() {
   const base = github.context.payload.pull_request.base.sha;
   const head = github.context.payload.pull_request.head.sha;
 
-  const client = github.getOctokit(core.getInput('token', {required: true}));
+  const client = github.getOctokit(core.getInput('repo-access-token', {required: true}));
   const response = await client.rest.repos.compareCommits({
     base,
     head,
